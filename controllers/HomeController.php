@@ -24,12 +24,14 @@ class HomeController {
        $name = $_REQUEST['name'];
        $email = $_REQUEST['email'];
        $password = $_REQUEST['password'];
+       $conexion = new conexion();
+       $conexion->conect();
        $sql = "INSERT INTO `usuarios`(`id`, `name`, `email`, `password`, `age`, `id_roles`) VALUES ('$name','$email',$password','18','1')";
-       $resultado = $db->query($sql);
-
-       // Verificar si la consulta se realizó correctamente
-       if (!$resultado) {
-           die("Error en la consulta: " . $db->error);
+       $resultado = $conexion->query($sql);
+       if ($resultado) {
+        echo "registro exitoso";
+       }else{
+        echo "error".$resultado;
        }
     }
 }
