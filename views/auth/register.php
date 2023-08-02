@@ -1,183 +1,224 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="public/images/favicon.png" type="">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <title> Feane </title>
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="public/css/plyr.css" type="text/css">
-    <link rel="stylesheet" href="public/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="public/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="public/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="public/css/responsive.css" rel="stylesheet" />
+
 </head>
 
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<body class="sub_page">
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html">
-                            <img src="public/img/logo.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="header__nav">
-                        <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
-                                    <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
-                    </div>
-                </div>
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="public/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Feane
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+<?php
+$url = $_SERVER["REQUEST_URI"];
+$url = str_replace("/yates","",$url);
+?>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item <?php if ($url == "/register") {echo "active";} ?>">
+                <a class="nav-link" href="index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="book.html">Book Table <span class="sr-only">(current)</span> </a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="" class="order_online btn-primary">Order Online</a>
             </div>
-            <div id="mobile-menu-wrap"></div>
-        </div>
-    </header>
-    <!-- Header End -->
-
-    <!-- Normal Breadcrumb Begin -->
-    <div class="row mb-5">
-        <div class="col-md-6 col-sm-12">
-            <section class="normal-breadcrumb set-bg" data-setbg="public/img/normal-breadcrumb.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="normal__breadcrumb__text">
-                                <h2>Registro</h2>
-                                <p>Bienvenido a la plataforma de la biblioteca de X.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="col-md-6 col-sm-12">
-            <section class="login spad">
-                <div class="container">
-                            <form action="" class="form" method="POST">
-                                <p>Register</p>
-                                <div class="group">
-                                    <input required="true" class="main-input" type="text">
-                                    <span class="highlight-span"></span>
-                                    <label class="lebal-email">Nombre de Usuario</label>
-                                </div>
-                                <div class="group mt-5">
-                                    <input required="true" class="main-input" type="number">
-                                    <span class="highlight-span"></span>
-                                    <label class="lebal-email">Edad</label>
-                                </div>
-                                <div class="group mt-5">
-                                    <input required="true" class="main-input" type="email">
-                                    <span class="highlight-span"></span>
-                                    <label class="lebal-email">Email</label>
-                                </div>
-                                <div class="group mt-5">
-                                    <input required="true" class="main-input" type="password">
-                                    <span class="highlight-span"></span>
-                                    <label class="lebal-email">Contraseña</label>
-                                </div>
-                                <!-- Hover added -->
-                                <div class="btn-group">
-                                    <a href="./login" class="button btn-primary">Iniciar Sesion</a>
-                                    <button class="button btn-success">Registrarse</button>
-                                </div>
-                            </form>
-                </div>
-            </section>
-        </div>
-    </div>
-    
-    <!-- Normal Breadcrumb End -->
-
-    <!-- Login Section Begin -->
-    
-    <!-- Login Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer__logo">
-                        <a href="./index.html"><img src="public/img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="footer__nav">
-                        <ul>
-                            <li class="active"><a href="./index.html">Homepage</a></li>
-                            <li><a href="./categories.html">Categories</a></li>
-                            <li><a href="./blog.html">Our Blog</a></li>
-                            <li><a href="#">Contacts</a></li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
           </div>
-      </footer>
-      <!-- Footer Section End -->
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
 
-      <!-- Search model Begin -->
-      <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch"><i class="icon_close"></i></div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+  <!-- book section -->
+  <section class="book_section">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-9 my-3">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h4 class="card-title">Registrate!</h4>
+            <form action="./registers" method="post">
+            <div class="form-floating mb-3">
+              <label for="formId1">Name</label>
+              <input
+                type="text"
+                class="form-control" name="name" id="formId1" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
             </form>
+          </div>
         </div>
+        </div>
+        <div class="col-md-3">
+          <img src="public/images/fondo1.jpg" class="img-fluid rounded-top" alt="">
+        </div>
+      </div>
     </div>
-    <!-- Search model end -->
+  </section>
+  <!-- end book section -->
 
-    <!-- Js Plugins -->
-    <script src="public/js/jquery-3.3.1.min.js"></script>
-    <script src="public/js/bootstrap.min.js"></script>
-    <script src="public/js/player.js"></script>
-    <script src="public/js/jquery.nice-select.min.js"></script>
-    <script src="public/js/mixitup.min.js"></script>
-    <script src="public/js/jquery.slicknav.js"></script>
-    <script src="public/js/owl.carousel.min.js"></script>
-    <script src="public/js/main.js"></script>
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
 
+  <!-- jQery -->
+  <script src="public/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="public/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="public/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
 
 </body>
 

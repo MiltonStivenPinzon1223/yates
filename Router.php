@@ -12,6 +12,7 @@ class Router{
         $routes = [
             ['/', 'HomeController', 'index'],
             ['/register', 'HomeController', 'show_register'],
+            ['/registers', 'HomeController', 'register'],
             ['/login', 'HomeController', 'show_login'],
         ];
         $found = false;
