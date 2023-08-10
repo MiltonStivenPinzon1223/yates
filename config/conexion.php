@@ -17,7 +17,7 @@ class conexion{
     }
 
     public function conect() {
-        $this->conexion = new mysqli($this->host, $this->database, $this->username, $this->password);
+        $this->conexion = new mysqli($this->host, $this->username, $this->password, $this->database);
         if ($this->conexion->connect_error) {
             die("Error de base de datos: ".$this->conexion->connect_error);
         }

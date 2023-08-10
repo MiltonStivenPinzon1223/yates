@@ -1,5 +1,6 @@
 <?php
 include_once "config/conexion.php";
+include './models/Person.php';
 
 class HomeController {
     public function index()
@@ -21,17 +22,9 @@ class HomeController {
     public function show_login(){include 'views/auth/login.php';}
 
     function register(){
-       $name = $_REQUEST['name'];
+        $name = $_REQUEST['name'];
        $email = $_REQUEST['email'];
        $password = $_REQUEST['password'];
-       $conexion = new conexion();
-       $conexion->conect();
-       $sql = "INSERT INTO `usuarios`(`id`, `name`, `email`, `password`, `age`, `id_roles`) VALUES ('$name','$email',$password','18','1')";
-       $resultado = $conexion->query($sql);
-       if ($resultado) {
-        echo "registro exitoso";
-       }else{
-        echo "error".$resultado;
-       }
+       $user = Person::register($name, $email, $password);
     }
 }
