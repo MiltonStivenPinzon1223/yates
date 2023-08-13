@@ -1,11 +1,10 @@
 <?php
 include_once "config/conexion.php";
-include './models/Person.php';
 
 class HomeController {
     public function index()
     {
-        echo 'asd a la página de inicio';
+        include 'views/index.html';
     }
 
     public function about()
@@ -22,9 +21,15 @@ class HomeController {
     public function show_login(){include 'views/auth/login.php';}
 
     function register(){
-        $name = $_REQUEST['name'];
+       $name = $_REQUEST['name'];
        $email = $_REQUEST['email'];
        $password = $_REQUEST['password'];
-       $user = Person::register($name, $email, $password);
+       $sql = "INSERT INTO `usuarios`(`id`, `name`, `email`, `password`, `age`, `id_roles`) VALUES ('$name','$email',$password','18','1')";
+       $resultado = $db->query($sql);
+
+       // Verificar si la consulta se realizó correctamente
+       if (!$resultado) {
+           die("Error en la consulta: " . $db->error);
+       }
     }
 }
