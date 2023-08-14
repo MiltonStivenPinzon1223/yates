@@ -1,5 +1,4 @@
 <?php
-include_once "config/conexion.php";
 
 class Person{
     public $name;
@@ -25,16 +24,19 @@ class Person{
     public function getRol() {return $this->rol;}
     public function setRol($rol) {$this->rol = $rol;}
 
-    public function register($name, $email, $password, $document){
-        $conexion = new conexion();
-        $conexion->conect();
-        
-        $sql = "INSERT INTO `users`(`name`, `document`, `email`, `password`, `id_type_documents`, `id_rols`) VALUES ('$name', '$document', '$email', '$password', '2', '1')";
-        $resultado = $conexion->query($sql);
-        
-        $conexion->close();
-        
-        return $resultado;
+    public function register($__name, $__email, $__password){
+       $name = $__name;
+       $email = $__email;
+       $password = $__password;
+       $conexion = new conexion();
+       $conexion->conect();
+       $sql = "INSERT INTO usuarios(name, email, password, id_roles) VALUES ('$name','$email','$password','1')";
+       $resultado = $conexion->query($sql);
+       if (!$resultado) {
+        return true;
+       }else{
+        return "error".$resultado;
+       }
     }
 }
 

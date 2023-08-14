@@ -58,16 +58,16 @@ $url = str_replace("/yates","",$url);
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item <?php if ($url == "/register") {echo "active";} ?>">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="/">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="menu.html">Menu</a>
+                <a class="nav-link active" href="/citas">Citas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="/book">Book Table <span class="sr-only">(current)</span> </a>
               </li>
             </ul>
             <div class="user_option">
@@ -95,6 +95,12 @@ $url = str_replace("/yates","",$url);
               <input
                 type="text"
                 class="form-control" name="name" id="formId1" placeholder="">
+            </div>
+            <div class="form-floating mb-3">
+              <label for="formId1">Document</label>
+              <input
+                type="text"
+                class="form-control" name="document" id="" placeholder="">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Email</label>

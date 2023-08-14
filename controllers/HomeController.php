@@ -1,10 +1,12 @@
 <?php
 include_once "config/conexion.php";
+include "models/Person.php";
 
 class HomeController {
     public function index()
     {
-        include 'views/index.html';
+        $yacths = Yacths::all();
+        include 'views/index.php';
     }
 
     public function about()
@@ -21,15 +23,23 @@ class HomeController {
     public function show_login(){include 'views/auth/login.php';}
 
     function register(){
-       $name = $_REQUEST['name'];
-       $email = $_REQUEST['email'];
-       $password = $_REQUEST['password'];
-       $sql = "INSERT INTO `usuarios`(`id`, `name`, `email`, `password`, `age`, `id_roles`) VALUES ('$name','$email',$password','18','1')";
-       $resultado = $db->query($sql);
-
-       // Verificar si la consulta se realizó correctamente
-       if (!$resultado) {
-           die("Error en la consulta: " . $db->error);
-       }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $document = $_POST['document'];
+            
+            $resultado = Person::register($name, $email, $password, $document);
+    
+            if ($resultado) {
+                echo "Registro exitoso";
+                // También podrías redirigir a otra página o mostrar un mensaje de éxito de alguna manera
+            } else {
+                echo "Error en el registro".$resultado;
+            }
+        } else {
+            // Manejar el caso en el que no se haya enviado un formulario POST
+            echo "Acceso no válido";
+        }
     }
 }

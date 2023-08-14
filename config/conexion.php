@@ -23,6 +23,10 @@ class conexion{
         }
     }
 
+    public function prepare($query) {
+        return $this->conexion->prepare($query);
+    }
+
     public function close(){
         $this->conexion->close();
     }
