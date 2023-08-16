@@ -29,12 +29,13 @@ class Person{
         $conexion = new conexion();
         $conexion->conect();
         
-        $sql = "INSERT INTO `users`(`name`, `document`, `email`, `password`, `id_type_documents`, `id_rols`) VALUES ('$name', '$document', '$email', '$password', '2', '1')";
+        $sql = "INSERT INTO `users`(`name`, `document`, `email`, `password`, `id_type_documents`, `id_rols`) VALUES ('$name', '$document', '$email', '$password', 1, 1)";
         $resultado = $conexion->query($sql);
         
-        $conexion->close();
-        
-        return $resultado;
+        if ($resultado > 0) {
+            $conexion->close();
+            return true;
+        }
     }
 }
 

@@ -5,7 +5,7 @@ include "models/Person.php";
 class HomeController {
     public function index()
     {
-        $yacths = Yacths::all();
+        //$yacths = Yacths::all();
         include 'views/index.php';
     }
 
@@ -29,16 +29,13 @@ class HomeController {
             $password = $_POST['password'];
             $document = $_POST['document'];
             
-            $resultado = Person::register($name, $email, $password, $document);
-    
-            if ($resultado) {
+            $register = Person::register($name, $email, $password, $document);
+            if (!$register) {
                 echo "Registro exitoso";
-                // También podrías redirigir a otra página o mostrar un mensaje de éxito de alguna manera
-            } else {
-                echo "Error en el registro".$resultado;
+            }else {
+                echo "Error en el registro".$register;
             }
         } else {
-            // Manejar el caso en el que no se haya enviado un formulario POST
             echo "Acceso no válido";
         }
     }

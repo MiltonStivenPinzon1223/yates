@@ -36,7 +36,7 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="public/images/hero-bg.jpg" alt="">
+      <img src="public/images/fondo.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">

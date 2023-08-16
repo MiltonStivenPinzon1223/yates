@@ -3,8 +3,6 @@
 class Person{
     public $name;
     protected $email;
-    protected $password;
-    protected $rol;
 
     public function __construct($name, $email, $password)
     {
@@ -28,9 +26,12 @@ class Person{
        $name = $__name;
        $email = $__email;
        $password = $__password;
+       echo $name;
+       echo $email;
+       echo $password;
        $conexion = new conexion();
        $conexion->conect();
-       $sql = "INSERT INTO usuarios(name, email, password, id_roles) VALUES ('$name','$email','$password','1')";
+       $sql = "INSERT INTO users(name, email, password, id_roles) VALUES ('$name','$email','$password','1')";
        $resultado = $conexion->query($sql);
        if (!$resultado) {
         return true;
