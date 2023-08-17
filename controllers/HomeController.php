@@ -1,11 +1,12 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
+include "models/Yacths.php";
 
 class HomeController {
     public function index()
     {
-        //$yacths = Yacths::all();
+        $yacths = Yacths::all();
         include 'views/index.php';
     }
 

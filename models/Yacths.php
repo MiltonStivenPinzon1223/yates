@@ -1,43 +1,42 @@
 <?php
 
-class Person{
-    public $name;
-    protected $email;
+class Yacths{
+    public $price;
+    public $brand;
+    public $model;
+    public $photo;
+    public $information;
+    private $serie;
 
-    public function __construct($name, $email, $password)
-    {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
-        $this->rol = 1;
+    public function __construct($price, $information, $serie, $brand, $model, $photo){
+        $this->price = $price;
+        $this->information = $information;
+        $this->serie = $serie;
+        $this->brand = $brand;
+        $this->model = $model;
+        $this->photo = $photo;
     }
 
     //=======GETTERS Y SETTERS
-    public function getName() {return $this->name;}
-    public function setName($name) {$this->name = $name;}
-    public function getEmail() {return $this->email;}
-    public function setEmail($email) {$this->email = $email;}
-    public function getPassword() {return $this->password;}
-    public function setPassword($password) {$this->password = $password;}
-    public function getRol() {return $this->rol;}
-    public function setRol($rol) {$this->rol = $rol;}
+    public function getPrice() {return $this->price;}
+    public function setPrice($price) {$this->price = $price;}
+    public function getInformation() {return $this->information;}
+    public function setInformation($information) {$this->information = $information;}
+    public function getSerie() {return $this->serie;}
+    public function setSerie($serie) {$this->serie = $serie;}
+    public function getBrand() {return $this->brand;}
+    public function setBrand($brand) {$this->brand = $brand;}
+    public function getModel() {return $this->model;}
+    public function setModel($model) {$this->model = $model;}
+    public function getPhoto() {return $this->photo;}
+    public function setPhoto($photo) {$this->photo = $photo;}
 
-    public function register($__name, $__email, $__password){
-       $name = $__name;
-       $email = $__email;
-       $password = $__password;
-       echo $name;
-       echo $email;
-       echo $password;
-       $conexion = new conexion();
-       $conexion->conect();
-       $sql = "INSERT INTO users(name, email, password, id_roles) VALUES ('$name','$email','$password','1')";
-       $resultado = $conexion->query($sql);
-       if (!$resultado) {
-        return true;
-       }else{
-        return "error".$resultado;
-       }
+    public function all(){
+        $sql = "SELECT * FROM yacths";
+        $conexion = new conexion();
+        $conexion->conect();
+        $yacths = $conexion->query($sql);
+        return $yacths;
     }
 }
 
