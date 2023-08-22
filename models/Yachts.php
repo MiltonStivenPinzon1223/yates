@@ -1,6 +1,6 @@
 <?php
 
-class Yacths{
+class Yachts{
     public $price;
     public $brand;
     public $model;
@@ -31,12 +31,19 @@ class Yacths{
     public function getPhoto() {return $this->photo;}
     public function setPhoto($photo) {$this->photo = $photo;}
 
-    public function all(){
-        $sql = "SELECT * FROM yacths";
+    public static function all($page){
+        $start = ($page - 1) * 3;
+        $sql = "SELECT * FROM yachts WHERE id_users = 1 LIMIT $start, 3";
         $conexion = new conexion();
         $conexion->conect();
-        $yacths = $conexion->query($sql);
-        return $yacths;
+        $resultado = $conexion->query($sql);
+
+        $yachts = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $fila['category'] = 'yachts';
+            $yachts[] = $fila;
+        }
+        return $yachts;
     }
 }
 

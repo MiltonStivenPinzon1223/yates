@@ -11,7 +11,20 @@ class Router{
     function matchRoute(){
         $routes = [
             ['/', 'HomeController', 'index'],
+            ['/2', 'HomeController', 'index'],
+            ['/accesories/', 'AccesoryController', 'index'],
+            ['/accesories/{id}', 'AccesoryController', 'show'],
+            ['/accesories/{id}/edit', 'AccesoryController', 'edit'],
+            ['/accesories/{id}/update', 'AccesoryController', 'update'],
+            ['/accesories/{id}/delete', 'AccesoryController', 'delete'],
+            ['/yachts/', 'YachtController', 'index'],
+            ['/yachts/{id}', 'YachtController', 'show'],
+            ['/yachts/{id}/edit', 'YachtController', 'edit'],
+            ['/yachts/{id}/update', 'YachtController', 'update'],
+            ['/yachts/{id}/delete', 'YachtController', 'delete'],
             ['/register', 'HomeController', 'show_register'],
+            ['/about', 'HomeController', 'about'],
+            ['/quoutas', 'QuotesController', 'index'],
             ['/registers', 'HomeController', 'register'],
             ['/login', 'HomeController', 'show_login'],
         ];

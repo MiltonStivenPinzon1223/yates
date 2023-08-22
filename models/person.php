@@ -28,14 +28,21 @@ class Person{
     public function register($name, $email, $password, $document){
         $conexion = new conexion();
         $conexion->conect();
-        
         $sql = "INSERT INTO `users`(`name`, `document`, `email`, `password`, `id_type_documents`, `id_rols`) VALUES ('$name', '$document', '$email', '$password', 1, 1)";
         $resultado = $conexion->query($sql);
-        
         if ($resultado > 0) {
             $conexion->close();
             return true;
         }
+    }
+
+    public function getUser($username) {
+        $conexion = new conexion();
+        $conexion->conect();
+        $stmt = "SELECT * FROM users WHERE username = $username";
+        $resultado = $conexion->query($stmt);
+
+        return $resultado->fetch();
     }
 }
 

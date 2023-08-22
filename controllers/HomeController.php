@@ -1,12 +1,21 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yacths.php";
+include "models/Yachts.php";
+include "models/Accesories.php";
 
 class HomeController {
     public function index()
     {
-        $yacths = Yacths::all();
+        $page = $_SERVER["REQUEST_URI"];
+        $page = str_replace("/yates/","",$page);
+        $page = ($page == "") ? '1' : $page;
+        $yachts = Yachts::all($page);
+        $accesories = Accesories::all($page);
+        $products = array_merge($accesories, $yachts);
+
+        shuffle($products);
+        // print_r($products);
         include 'views/index.php';
     }
 
@@ -39,5 +48,16 @@ class HomeController {
         } else {
             echo "Acceso no válido";
         }
+    }
+
+    public function login($username, $password) {
+        $user = Person::getUser($username);
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user'] = $user;
+            return true;
+        }
+
+        return false;
     }
 }
