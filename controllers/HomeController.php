@@ -1,8 +1,8 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yachts.php";
-include "models/Accesories.php";
+include "models/Yacht.php";
+include "models/Accesory.php";
 
 class HomeController {
     public function index()
@@ -10,8 +10,8 @@ class HomeController {
         $page = $_SERVER["REQUEST_URI"];
         $page = str_replace("/yates/","",$page);
         $page = ($page == "") ? '1' : $page;
-        $yachts = Yachts::all($page);
-        $accesories = Accesories::all($page);
+        $yachts = Yacht::all($page);
+        $accesories = Accesory::all($page);
         $products = array_merge($accesories, $yachts);
 
         shuffle($products);

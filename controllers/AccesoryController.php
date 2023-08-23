@@ -1,8 +1,8 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yachts.php";
-include "models/Accesories.php";
+include "models/Yacht.php";
+include "models/Accesory.php";
 
 class AccesoryController {
     public function index()

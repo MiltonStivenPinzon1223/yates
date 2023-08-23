@@ -1,42 +1,34 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yachts.php";
-include "models/Accesories.php";
+include "models/Yacht.php";
+include "models/Accesory.php";
 
 class YachtController {
     public function index()
     {
-        $page = $_SERVER["REQUEST_URI"];
-        $page = str_replace("/yates/","",$page);
-        $page = ($page == "") ? '1' : $page;
-        $yachts = Yachts::all($page);
-        $accesories = Accesories::all($page);
-        $products = array_merge($accesories, $yachts);
-
-        shuffle($products);
-        // print_r($products);
-        include 'views/index.php';
+        echo "index de yates";
     }
 
     public function show()
     {
-        echo 'show de acesorios';
+        $yacht = Yacht::find(1);
+        include 'views/yachts/show.php';
     }
 
     public function create()
     {
-        echo 'create de accesorios';
+        echo 'create de yates';
     }
 
     public function edit()
     {
-        echo 'edit de accesorios';
+        echo 'edit de yates';
     }
 
     public function update()
     {
-        echo 'update de accesorios';
+        echo 'update de yates';
     }
 
     public function store()
