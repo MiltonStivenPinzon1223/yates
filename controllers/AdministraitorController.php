@@ -50,4 +50,41 @@ class AdministraitorController {
     {
         echo 'delete de accesories';
     }
+
+    public function options(){
+        $url = $_SERVER["REQUEST_URI"];
+        $url = str_replace("/yates/administraitor/","",$url);
+        switch ($url) {
+            case 'accesories/':
+                echo $url;
+                break;
+            case 'sedes/':
+                echo $url;
+                break;
+            case 'yachts/':
+                echo $url;
+                break;
+            case 'quotes/':
+                echo $url;
+                break;
+            case 'sales/':
+                echo $url;
+                break;
+            case 'services/':
+                echo $url;
+                break;
+            case 'mechanics/':
+                echo $url;
+                break;
+            case 'users/':
+                echo $url;
+                break;
+            case 'brands/':
+                echo $url;
+                break;
+            default:
+                echo $url;
+                break;
+        }
+    }
 }
