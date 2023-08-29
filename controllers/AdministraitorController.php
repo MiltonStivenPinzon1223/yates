@@ -4,10 +4,12 @@ include "models/Person.php";
 include "models/Yacht.php";
 include "models/Accesory.php";
 
-class YachtController {
+class AdministraitorController {
     public function index()
     {
-        echo "index de yates";
+        // if ($_SESSION['user'] == 'admin') {
+            include 'views/administraitors/index.php';
+        // }
     }
 
     public function show()

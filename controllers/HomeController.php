@@ -38,9 +38,9 @@ class HomeController {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $document = $_POST['document'];
-            
+
             $register = Person::register($name, $email, $password, $document);
-            if (!$register) {
+            if ($register) {
                 echo "Registro exitoso";
             }else {
                 echo "Error en el registro".$register;
@@ -50,14 +50,19 @@ class HomeController {
         }
     }
 
-    public function login($username, $password) {
-        $user = Person::getUser($username);
-
-        if ($user && password_verify($password, $user['password'])) {
+    public function login() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = Person::getUser($email, $password);
+        if ($user) {
             $_SESSION['user'] = $user;
-            return true;
+            print_r($user);
+            echo "<a href='./yachts/1/edit'>Editar Yate</a>";
+        }else{
+            echo "error";
         }
-
+    }
         return false;
     }
 }

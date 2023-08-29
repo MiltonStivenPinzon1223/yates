@@ -89,7 +89,7 @@ $url = str_replace("/yates","",$url);
         <div class="card bg-light">
           <div class="card-body">
             <h4 class="card-title">Ingresa</h4>
-            <form action="./registers" method="post">
+            <form action="./loginn" method="post">
             <div class="mb-3">
               <label for="" class="form-label">Email</label>
               <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="abc@mail.com">

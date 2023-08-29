@@ -12,6 +12,7 @@ class Router{
         $routes = [
             ['/', 'HomeController', 'index'],
             ['/2', 'HomeController', 'index'],
+            ['/administraitor', 'AdministraitorController', 'index'],
             ['/accesories/', 'AccesoryController', 'index'],
             ['/accesories/1', 'AccesoryController', 'show'],
             ['/accesories/1/edit', 'AccesoryController', 'edit'],
@@ -27,6 +28,7 @@ class Router{
             ['/quoutas', 'QuotesController', 'index'],
             ['/registers', 'HomeController', 'register'],
             ['/login', 'HomeController', 'show_login'],
+            ['/loginn', 'HomeController', 'login'],
         ];
         $found = false;
         foreach ($routes as $route) {

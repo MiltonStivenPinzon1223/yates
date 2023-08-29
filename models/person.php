@@ -33,16 +33,25 @@ class Person{
         if ($resultado > 0) {
             $conexion->close();
             return true;
+        }else{
+            return $resultado;
         }
     }
 
-    public function getUser($username) {
+    public static function getUser($email, $password) {
         $conexion = new conexion();
         $conexion->conect();
-        $stmt = "SELECT * FROM users WHERE username = $username";
-        $resultado = $conexion->query($stmt);
-
-        return $resultado->fetch();
+        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $resultado = $conexion->query($sql);
+        if ($resultado != null) {
+            $conexion->close();
+            while ($fila = $resultado->fetch_assoc()) {
+                $user[] = $fila;
+            }
+            return $user[0];
+        }else{
+            die("Error  ");
+        }
     }
 }
 
