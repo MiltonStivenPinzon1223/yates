@@ -33,6 +33,6 @@ class conexion{
 
     public function query($sql){ 
         $query = $this->conexion->query($sql);
-        return $query;  
+        return $query;
     }
 }

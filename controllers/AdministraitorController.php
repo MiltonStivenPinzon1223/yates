@@ -1,8 +1,6 @@
 <?php
 include_once "config/conexion.php";
-include "models/Person.php";
-include "models/Yacht.php";
-include "models/Accesory.php";
+include "controllers/AccesoryController.php";
 
 class AdministraitorController {
     public function index()
@@ -56,7 +54,8 @@ class AdministraitorController {
         $url = str_replace("/yates/administraitor/","",$url);
         switch ($url) {
             case 'accesories/':
-                echo $url;
+                $accesories = Accesory::all(1);
+                include 'views/accesories/index.php';
                 break;
             case 'sedes/':
                 echo $url;

@@ -56,6 +56,7 @@ class HomeController {
             $password = $_POST['password'];
             $user = Person::getUser($email, $password);
         if ($user) {
+            session_start();
             $_SESSION['user'] = $user;
             print_r($user);
             echo "<a href='./yachts/1/edit'>Editar Yate</a>";
