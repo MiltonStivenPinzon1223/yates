@@ -23,8 +23,10 @@ class Accesory{
     public function getPhoto() {return $this->photo;}
     public function setPhoto($photo) {$this->photo = $photo;}
 
-    public static function all($rol){
-        $sql = ($rol == 1) ? "SELECT * FROM accessories" : "SELECT name, information, price FROM accessories";
+    public static function all($page){
+        $start = ($page - 1) * 3;
+        $sql = "SELECT name, information, price, photo FROM accessories LIMIT $start, 3";
+        // $sql = ($rol == 1) ? "SELECT * FROM accessories" : "SELECT name, information, price FROM accessories";
         $conexion = new conexion();
         $conexion->conect();
         $resultado = $conexion->query($sql);
@@ -45,7 +47,13 @@ class Accesory{
         while ($fila = $resultado->fetch_assoc()) {
             $accesory[] = $fila;
         }
-        return $accesory;
+        return $accesory[0];
+    }
+    public static function update($id,$name, $information, $price, $stock){
+        $sql = "UPDATE `accessories` SET `id`='[value-1]',`name`='[value-2]',`information`='[value-3]',`price`='[value-4]',`stock`='[value-5]',`photo`='[value-6]' WHERE 1";
+        $conexion = new conexion();
+        $conexion->conect();
+        // $resultado = $conexion->query($sql);
     }
 }
 

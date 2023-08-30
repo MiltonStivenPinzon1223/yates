@@ -31,6 +31,15 @@ class AccesoryController {
 
     public function update()
     {
+        $name = $_POST['name'];
+        $information = $_POST['information'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
+        $url = $_SERVER["REQUEST_URI"];
+        $id = substr($url, 0, -7);
+        $id = substr($id, 33);
+        echo $id;
+        $resultado = Accesory::update($name,$information,$price,$stock);
         echo 'update de accesorios';
     }
 

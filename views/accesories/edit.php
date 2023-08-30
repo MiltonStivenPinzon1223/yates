@@ -28,8 +28,30 @@
   <div class="container">
     <div class="card bg-light">
       <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+      <h4 class="card-title">Edicion de proyecto</h4>
+      <form action="./update" method="POST">
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">name:</label>
+          <input type="text" class="form-control" id="name" value="<?php echo $accesory['name']; ?>" placeholder="Edite nombre" name="name">
+        </div>
+        <div class="mb-3">
+          <label for="information" class="form-label">Infomación:</label>
+          <input type="text" class="form-control" id="information" value="<?php echo $accesory['information']; ?>" placeholder="Edite infomación" name="information">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="price" class="form-label">Precio:</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" id="price" value="<?php echo $accesory['price']; ?>" placeholder="Edite precio" name="price">
+            <span class="input-group-text">.000</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Cantidad:</label>
+          <input type="Cantidad" class="form-control" id="stock" value="<?php echo $accesory['stock']; ?>" placeholder="Edite Cantidad" name="stock">
+        </div>
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
       </div>
     </div>
   </div>
