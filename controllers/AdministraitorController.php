@@ -58,7 +58,8 @@ class AdministraitorController {
                 include 'views/accesories/index.php';
                 break;
             case 'sedes/':
-                echo $url;
+                $sedes = Sede::all(1);
+                include 'views/sedes/index.php';
                 break;
             case 'yachts/':
                 echo $url;
