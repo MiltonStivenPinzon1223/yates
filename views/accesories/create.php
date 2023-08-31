@@ -1,44 +1,25 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="../public/images/favicon.png" type="">
-
-  <title> Feane </title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
-  <link href="../public/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="../public/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="../public/css/responsive.css" rel="stylesheet" />
-
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../public/css/style.css">
+  <link rel="stylesheet" href="../../public/css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .card-img-top{height: 300px; object-fit: cover;}
+    .card-img-top:hover{width: 110%; height: 330px;transition: all 0.5s;}
+    .card{overflow: hidden;}
+  </style>
 </head>
-
 <body>
 
-    <!-- header section strats -->
-    <header class="header_section">
+<header class="header_section header-administraitor border-bottom">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="./">
+          <a class="navbar-brand navbar-administrator" href="./">
             <span>
               Feane
             </span>
@@ -52,14 +33,14 @@ $url = $_SERVER["REQUEST_URI"];
 $url = str_replace("/yates","",$url);
 ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item <?php if ($url == "/") {echo "active";} ?>">
+            <ul class="navbar-nav mx-auto ">
+              <li class="nav-item nav-itemAdmin" >
                 <a class="nav-link" href="./">Home</a>
               </li>
-              <li class="nav-item <?php if ($url == "/quotes") {echo "active";} ?>">
+              <li class="nav-item nav-itemAdmin">
                 <a class="nav-link" href="quotes">Quotes</a>
               </li>
-              <li class="nav-item <?php if ($url == "/about") {echo "active";} ?>">
+              <li class="nav-item nav-itemAdmin">
                 <a class="nav-link" href="about">About</a>
               </li>
             </ul>
@@ -92,118 +73,36 @@ $url = str_replace("/yates","",$url);
         </nav>
       </div>
     </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-    <div class="container ">
-
-    </section>
-    <!-- end slider section -->
-  </div>
-
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-col">
-          <div class="footer_contact">
-            <h4>
-              Contact Us
-            </h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call +01 1234567890
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  demo@gmail.com
-                </span>
-              </a>
-            </div>
+  
+<div class="container my-5">
+<div class="card bg-light">
+      <div class="card-body">
+      <h4 class="card-title">Edicion de proyecto</h4>
+      <form action="./store" method="POST">
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="name" placeholder="Inserte nombre" name="name">
+        </div>
+        <div class="mb-3">
+          <label for="information" class="form-label">Infomación:</label>
+          <input type="text" class="form-control" id="information" placeholder="Inserte infomación" name="information">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="price" class="form-label">Precio:</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" id="price" placeholder="Inserte precio" name="price">
+            <span class="input-group-text">.000</span>
           </div>
         </div>
-        <div class="col-md-4 footer-col">
-          <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Feane
-            </a>
-            <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-            </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Cantidad:</label>
+          <input type="number" class="form-control" id="stock" placeholder="Inserte Cantidad" name="stock">
         </div>
-        <div class="col-md-4 footer-col">
-          <h4>
-            Opening Hours
-          </h4>
-          <p>
-            Everyday
-          </p>
-          <p>
-            10.00 Am -10.00 Pm
-          </p>
-        </div>
-      </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-        </p>
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </form>
       </div>
     </div>
-  </footer>
-  <!-- footer section -->
-
-  <!-- jQery -->
-  <script src="../public/js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- bootstrap js -->
-  <script src="../public/js/bootstrap.js"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
-  <script src="../public/js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
-
+</div>
 </body>
-
 </html>

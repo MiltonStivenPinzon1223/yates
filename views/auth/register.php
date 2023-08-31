@@ -82,13 +82,11 @@ $url = str_replace("/yates","",$url);
 
   <!-- book section -->
   <section class="book_section">
-    <div class="container">
-      
       <div class="row">
-        <div class="col-md-9 my-3">
-        <div class="card bg-light">
+        <div class="col-md-6 my-2">
+        <div class="cardLogin bg-white px-5">
           <div class="card-body">
-            <h4 class="card-title">Registrate!</h4>
+            <h4 class="card-title py-4 text-center"">Registrate!</h4>
             <form action="./registers" method="post">
             <div class="form-floating mb-3">
               <label for="formId1">Name</label>
@@ -110,16 +108,17 @@ $url = str_replace("/yates","",$url);
               <label for="" class="form-label">Password</label>
               <input type="password" class="form-control" name="password" id="" placeholder="">
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <div class="text-center">
+            <button type="submit" class="loginButton btn text-light">Registrarse</button>
+            </div>
             </form>
           </div>
         </div>
         </div>
-        <div class="col-md-3">
+        <div class="imgLogin col-md-6 justify-content-end h-100">
           <img src="public/images/fondo1.jpg" class="img-fluid rounded-top" alt="">
         </div>
       </div>
-    </div>
   </section>
   <!-- end book section -->
 

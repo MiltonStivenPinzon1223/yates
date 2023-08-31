@@ -12,12 +12,19 @@ class AccesoryController {
 
     public function create()
     {
-        echo 'create de accesorios';
+        include 'views/accesories/create.php';
     }
 
     public function store()
     {
-        echo 'store de acessories';
+        $name = $_POST['name'];
+        $information = $_POST['information'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
+        $accesory = Accesory::store($name, $information, $price, $stock);
+        if ($accesory > 0) {
+            header('location:./');
+        }
     }
 
     public function edit()
@@ -38,14 +45,23 @@ class AccesoryController {
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -7);
         $id = substr($id, 33);
-        echo $id;
-        $resultado = Accesory::update($name,$information,$price,$stock);
-        echo 'update de accesorios';
+        $resultado = Accesory::update($id,$name,$information,$price,$stock);
+        echo $resultado;
+       if ($resultado > 0) {
+        header('location:../');
+       }
     }
 
     public function delete()
     {
-        echo 'delete de accesories';
+        $url = $_SERVER["REQUEST_URI"];
+        $id = substr($url, 0, -7);
+        $id = substr($id, 33);
+        $resultado = Accesory::delete($id);
+        echo $resultado;
+       if ($resultado > 0) {
+        header('location:../');
+       }
     }
 
 

@@ -25,6 +25,7 @@
 </nav>
   
 <div class="container mt-5">
+  <a href="./create" class="btn btn-success">Crear</a>
 <div class="table-responsive">
   <table class="table table-dark text-center">
     <thead>
@@ -48,7 +49,7 @@
         <td><?php echo $accesory['stock'];?></td>
         <td><div class="btn-group">
             <a href="<?php echo $accesory['id'];?>/edit" class="btn btn-success">Editar</a>
-            <a href="" class="btn btn-danger">Eliminar</a>
+            <a href="<?php echo $accesory['id'];?>/delete" class="btn btn-danger">Eliminar</a>
           </div></td>
       </tr>
           <?php endforeach; ?>

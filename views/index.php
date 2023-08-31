@@ -101,7 +101,7 @@ $url = str_replace("/yates","",$url);
     <section class="slider_section ">
     <div class="container ">
               <div class="row">
-                <div class="col-md-7 col-lg-7">
+                <div class="col-md-12 col-lg-10">
                   <div class="detail-box">
                     <h1>
                     Sale of water sports vehicles

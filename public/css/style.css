@@ -113,7 +113,7 @@ a:focus {
 
 .bg-box img {
   width: 100%;
-  height: 100%;
+  height: 90%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -141,6 +141,7 @@ a:focus {
 
 .header_section {
   padding: 15px 0;
+  background-color: black;
 }
 
 .header_section .container-fluid {
@@ -178,6 +179,7 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
   color: #1900a3;
+  font-weight: bolder;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -339,7 +341,12 @@ a:focus {
 
 .slider_section .detail-box {
   color: #000;
-  margin-bottom: 145px;
+  margin-bottom: 100px;
+  background-color: white;
+  padding-right: 18%;
+  padding-left: 5%;
+  padding-block: 10%;
+  border-radius:25px;
 }
 
 .slider_section .detail-box h1 {
@@ -1003,3 +1010,53 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+.header-administraitor{
+  background-color: white;
+}
+.navbar-administrator span{
+  color: #0c02bb;
+}
+.custom_nav-container .navbar-nav .nav-itemAdmin .nav-link {
+  padding: 5px 20px;
+  color: #0c02bb;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-nav .nav-itemAdmin:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  font-size: 15px;
+  font-weight: bolder;
+}
+.navbar-admin{
+  color: #000;
+}
+.card{
+  background-color: black;
+}
+
+.card-body > a > h4{
+  font-weight: bolder;
+  color: white;
+}
+.card-title{
+  font-weight: bolder;
+}
+
+.imgLogin{
+  width: 500px;
+  height: 400px;
+}
+.imgLogin > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+.loginButton{
+  background-color: #0c02bb;
+
+}

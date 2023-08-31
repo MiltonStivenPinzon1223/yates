@@ -21,7 +21,7 @@ class HomeController {
 
     public function about()
     {
-        echo 'Acerca de nosotros';
+        include 'views/about.html';
     }
 
     public function contact()

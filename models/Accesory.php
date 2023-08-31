@@ -25,7 +25,7 @@ class Accesory{
 
     public static function all($page){
         $start = ($page - 1) * 3;
-        $sql = "SELECT name, information, price, photo FROM accessories LIMIT $start, 3";
+        $sql = "SELECT id, name, information, price, photo, stock FROM accessories LIMIT $start, 3";
         // $sql = ($rol == 1) ? "SELECT * FROM accessories" : "SELECT name, information, price FROM accessories";
         $conexion = new conexion();
         $conexion->conect();
@@ -49,11 +49,28 @@ class Accesory{
         }
         return $accesory[0];
     }
+
     public static function update($id,$name, $information, $price, $stock){
-        $sql = "UPDATE `accessories` SET `id`='[value-1]',`name`='[value-2]',`information`='[value-3]',`price`='[value-4]',`stock`='[value-5]',`photo`='[value-6]' WHERE 1";
+        $sql = "UPDATE `accessories` SET `name`='$name',`information`='$information',`price`='$price',`stock`='$stock' WHERE id = $id";
         $conexion = new conexion();
         $conexion->conect();
-        // $resultado = $conexion->query($sql);
+        $resultado = $conexion->query($sql);
+        return $resultado;
+    }
+    public static function delete($id){
+        $sql = "DELETE FROM `accessories` WHERE id = $id";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+        return $resultado;
+    }
+
+    public static function store($name, $information, $price, $stock){
+        $sql = "INSERT INTO `accessories`(`name`, `information`, `price`, `stock`, `photo`) VALUES ('$name','$information','$price','$stock','public/images/a2.jpg')";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+        return $resultado;
     }
 }
 
