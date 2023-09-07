@@ -1,6 +1,7 @@
 <?php
 include_once "config/conexion.php";
 include "controllers/AccesoryController.php";
+include "./models/Sede.php";
 
 class AdministraitorController {
     public function index()

@@ -32,25 +32,19 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Fotografia</th>
-        <th scope="col">Informacion</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Disponibilidad</th>
+        <th scope="col">Direccion</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
-    <?php foreach ($accesories as $accesory) : ?>
+    <?php foreach ($sedes as $sede) : ?>
 
       <tr class="">
-        <td><?php echo $accesory['name'];?></td>
-        <td><img src="../../<?php echo $accesory['photo'];?>" class="img-table" alt=""></td>
-        <td><?php echo $accesory['information'];?></td>
-        <td>$ <?php echo $accesory['price'];?>.000</td>
-        <td><?php echo $accesory['stock'];?></td>
+        <td><?php echo $sede['sede'];?></td>
+        <td><?php echo $sede['direction'];?></td>
         <td><div class="btn-group">
-            <a href="<?php echo $accesory['id'];?>/edit" class="btn btn-success">Editar</a>
-            <a href="<?php echo $accesory['id'];?>/delete" class="btn btn-danger">Eliminar</a>
+            <a href="<?php echo $sede['id'];?>/edit" class="btn btn-success">Editar</a>
+            <a href="<?php echo $sede['id'];?>/delete" class="btn btn-danger">Eliminar</a>
           </div></td>
       </tr>
           <?php endforeach; ?>

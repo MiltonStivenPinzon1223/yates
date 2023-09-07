@@ -1,6 +1,6 @@
 <?php
 
-class Accesory{
+class Sede{
     public $sede;
     public $direction;
 
@@ -16,7 +16,6 @@ class Accesory{
     public function setdirection($direction) {$this->direction = $direction;}
 
     public static function all($page){
-        $start = ($page - 1) * 3;
         $sql = "SELECT * FROM sedes";
         $conexion = new conexion();
         $conexion->conect();
@@ -35,13 +34,13 @@ class Accesory{
         $conexion->conect();
         $resultado = $conexion->query($sql);
         while ($fila = $resultado->fetch_assoc()) {
-            $accesory[] = $fila;
+            $sede[] = $fila;
         }
-        return $accesory[0];
+        return $sede[0];
     }
 
-    public static function update($id,$name, $direction, $sede, $stock){
-        $sql = "UPDATE `sedes` SET `name`='$name',`direction`='$direction',`sede`='$sede',`stock`='$stock' WHERE id = $id";
+    public static function update($id,$sede, $direction){
+        $sql = "UPDATE `sedes` SET `sede`='$sede',`direction`='$direction' WHERE id = $id";
         $conexion = new conexion();
         $conexion->conect();
         $resultado = $conexion->query($sql);
@@ -55,8 +54,8 @@ class Accesory{
         return $resultado;
     }
 
-    public static function store($name, $direction, $sede, $stock){
-        $sql = "INSERT INTO `sedes`(`name`, `direction`, `sede`, `stock`, `photo`) VALUES ('$name','$direction','$sede','$stock','public/images/a2.jpg')";
+    public static function store($sede, $direction){
+        $sql = "INSERT INTO `sedes`(`sede`, `direction`) VALUES ('$sede','$direction')";
         $conexion = new conexion();
         $conexion->conect();
         $resultado = $conexion->query($sql);
