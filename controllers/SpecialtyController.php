@@ -1,10 +1,9 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yacht.php";
-include "models/Sede.php";
+include "models/specialty.php";
 
-class SedeController {
+class SpecialtyController {
     public function show($id)
     {
         echo 'show de acesorios'.$id;
@@ -12,15 +11,14 @@ class SedeController {
 
     public function create()
     {
-        include 'views/sedes/create.php';
+        include 'views/specialtys/create.php';
     }
 
     public function store()
     {
-        $sede = $_POST['sede'];
-        $direction = $_POST['direction'];
-        $sede = Sede::store($sede, $direction);
-        if ($sede > 0) {
+        $specialty = $_POST['specialty'];
+        $specialty = specialty::store($specialty);
+        if ($specialty > 0) {
             header('location:./');
         }
     }
@@ -29,20 +27,19 @@ class SedeController {
     {
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -5);
-        $id = substr($id, 28);
-        $sede = Sede::find($id);
-        include 'views/sedes/edit.php';
+        $id = substr($id, 33);
+        $specialty = specialty::find($id);
+        include 'views/specialtys/edit.php';
     }
 
     public function update()
     {
-        $sede = $_POST['sede'];
-        $direction = $_POST['direction'];
+        $specialty = $_POST['specialty'];
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -7);
-        $id = substr($id, 28);
+        $id = substr($id, 33);
         echo $id;
-        $resultado = Sede::update($id,$sede,$direction);
+        $resultado = specialty::update($id,$specialty);
         echo $resultado;
        if ($resultado > 0) {
         header('location:../');
@@ -54,7 +51,7 @@ class SedeController {
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -7);
         $id = substr($id, 33);
-        $resultado = Sede::delete($id);
+        $resultado = specialty::delete($id);
         echo $resultado;
        if ($resultado > 0) {
         header('location:../');

@@ -12,56 +12,119 @@ class AccesoryController {
 
     public function create()
     {
-        include 'views/accesories/create.php';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                include 'views/accesories/create.php';
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
+        
     }
 
     public function store()
     {
-        $name = $_POST['name'];
-        $information = $_POST['information'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
-        $accesory = Accesory::store($name, $information, $price, $stock);
-        if ($accesory > 0) {
-            header('location:./');
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                $name = $_POST['name'];
+                $information = $_POST['information'];
+                $price = $_POST['price'];
+                $stock = $_POST['stock'];
+                $accesory = Accesory::store($name, $information, $price, $stock);
+                if ($accesory > 0) {
+                    header('location:./');
+                }
+            }else {
+                echo "no puedes editarlo";
+            }
         }
+        
     }
 
     public function edit()
     {
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -5);
-        $id = substr($id, 33);
-        $accesory = Accesory::find($id);
-        include 'views/accesories/edit.php';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                $url = $_SERVER["REQUEST_URI"];
+                $id = substr($url, 0, -5);
+                $id = substr($id, 33);
+                $accesory = Accesory::find($id);
+                include 'views/accesories/edit.php';
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 
     public function update()
     {
-        $name = $_POST['name'];
-        $information = $_POST['information'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 33);
-        $resultado = Accesory::update($id,$name,$information,$price,$stock);
-        echo $resultado;
-       if ($resultado > 0) {
-        header('location:../');
-       }
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                $name = $_POST['name'];
+                $information = $_POST['information'];
+                $price = $_POST['price'];
+                $stock = $_POST['stock'];
+                $url = $_SERVER["REQUEST_URI"];
+                $id = substr($url, 0, -7);
+                $id = substr($id, 33);
+                $resultado = Accesory::update($id,$name,$information,$price,$stock);
+                echo $resultado;
+                if ($resultado > 0) {
+                    header('location:../');
+                }
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 
     public function delete()
     {
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 33);
-        $resultado = Accesory::delete($id);
-        echo $resultado;
-       if ($resultado > 0) {
-        header('location:../');
-       }
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                $url = $_SERVER["REQUEST_URI"];
+                $id = substr($url, 0, -7);
+                $id = substr($id, 33);
+                $resultado = Accesory::delete($id);
+                echo $resultado;
+                if ($resultado > 0) {
+                    header('location:../');
+                }
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
+        
     }
 
 

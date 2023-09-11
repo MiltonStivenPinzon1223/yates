@@ -53,6 +53,52 @@ class Person{
             die("Error  ");
         }
     }
+
+    public static function find($id) {
+        $conexion = new conexion();
+        $conexion->conect();
+        $sql = "SELECT * FROM users WHERE id = '$id'";
+        $resultado = $conexion->query($sql);
+        if ($resultado != null) {
+            $conexion->close();
+            while ($fila = $resultado->fetch_assoc()) {
+                $user[] = $fila;
+            }
+            return $user[0];
+        }else{
+            die("Error  ");
+        }
+    }
+
+    public static function update($id,$name, $type_document, $document, $email){
+        $sql = "UPDATE `users` SET `name`='$name', `id_type_documents`='$type_document', `document`='$document', `email`='$email' WHERE id = $id";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+        return $resultado;
+    }
+
+    public static function updateStatus($id,$status){
+        $sql = "UPDATE `users` SET status=$status WHERE id = $id";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+        return $resultado;
+    }
+
+
+    public static function all(){
+        $sql = "SELECT users.*, type_documents.type FROM `users` JOIN type_documents ON users.id_type_documents = type_documents.id WHERE id_rols = 1";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+
+        $users = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $users[] = $fila;
+        }
+        return $users;
+    }
 }
 
 ?>

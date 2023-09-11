@@ -31,12 +31,8 @@
       <h4 class="card-title">Edicion de proyecto</h4>
       <form action="./update" method="POST">
         <div class="mb-3 mt-3">
-          <label for="name" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="name" value="<?php echo $sede['sede']; ?>" placeholder="Edite nombre" name="sede">
-        </div>
-        <div class="mb-3">
-          <label for="information" class="form-label">Direccion:</label>
-          <input type="text" class="form-control" id="information" value="<?php echo $sede['direction']; ?>" placeholder="Edite infomación" name="direction">
+          <label for="name" class="form-label">Especialidad:</label>
+          <input type="text" class="form-control" id="name" value="<?php echo $specialty['specialty']; ?>" placeholder="Edite nombre" name="specialty">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
       </form>

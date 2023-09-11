@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="public/css/style.css">
-  <link rel="stylesheet" href="public/css/responsive.css">
+  <link rel="stylesheet" href="../../public/css/style.css">
+  <link rel="stylesheet" href="../../public/css/responsive.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     .card-img-top{height: 300px; object-fit: cover;}
@@ -75,84 +75,18 @@ $url = str_replace("/yates","",$url);
     </header>
   
 <div class="container my-5">
-  <div class="row">
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/a2.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/accesories/" class="btn"><h4 class="card-title">Accesorios</h4></a>
-          </div>
+<div class="card bg-light">
+      <div class="card-body">
+      <h4 class="card-title">Creacion de Marca</h4>
+      <form action="./store" method="POST">
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Marca:</label>
+          <input type="text" class="form-control" id="name" placeholder="Inserte nombre" name="brand">
         </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </form>
+      </div>
     </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/sedes.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/sedes/" class="btn"><h4 class="card-title">Sedes</h4></a>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/yates.webp" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/yachts/" class="btn"><h4 class="card-title">Yates</h4></a>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/agenda.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/quotes/" class="btn"><h4 class="card-title">Agendamiento</h4></a>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/ventas.avif" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/sales/" class="btn"><h4 class="card-title">Ventas</h4></a>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/servicios.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/specialtys/" class="btn"><h4 class="card-title">Especialidades</h4></a>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/mecanicos.webp" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/mechanics/" class="btn"><h4 class="card-title">Mecanicos</h4></a>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/usuarios.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/users/" class="btn"><h4 class="card-title">Usuarios</h4></a>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="card text-white">
-          <img class="card-img-top" src="./public/images/marcas.jpg" alt="Title">
-          <div class="card-body">
-            <a href="./administraitor/brands/" class="btn"><h4 class="card-title">Marcas</h4></a>
-          </div>
-        </div>
-    </div>
-  </div>
 </div>
 </body>
 </html>

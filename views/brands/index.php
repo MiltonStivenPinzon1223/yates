@@ -15,6 +15,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="./">Feane</a>
+    <a class="navbar-brand" href="../../administraitor">Atras</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,24 +26,29 @@
 </nav>
   
 <div class="container mt-5">
-  <div class="container">
-    <div class="card bg-light">
-      <div class="card-body">
-      <h4 class="card-title">Edicion de proyecto</h4>
-      <form action="./update" method="POST">
-        <div class="mb-3 mt-3">
-          <label for="name" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="name" value="<?php echo $sede['sede']; ?>" placeholder="Edite nombre" name="sede">
-        </div>
-        <div class="mb-3">
-          <label for="information" class="form-label">Direccion:</label>
-          <input type="text" class="form-control" id="information" value="<?php echo $sede['direction']; ?>" placeholder="Edite infomación" name="direction">
-        </div>
-        <button type="submit" class="btn btn-primary">Editar</button>
-      </form>
-      </div>
-    </div>
-  </div>
+  <a href="./create" class="btn btn-success">Crear</a>
+<div class="table-responsive">
+  <table class="table table-dark text-center">
+    <thead>
+      <tr>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($brands as $brand) : ?>
+
+      <tr class="">
+        <td><?php echo $brand['brand'];?></td>
+        <td><div class="btn-group">
+            <a href="<?php echo $brand['id'];?>/edit" class="btn btn-success">Editar</a>
+            <a href="<?php echo $brand['id'];?>/delete" class="btn btn-danger">Eliminar</a>
+          </div></td>
+          <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
 </div>
 </body>
 </html>

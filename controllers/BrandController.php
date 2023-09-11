@@ -1,10 +1,9 @@
 <?php
 include_once "config/conexion.php";
 include "models/Person.php";
-include "models/Yacht.php";
-include "models/Sede.php";
+include "models/brand.php";
 
-class SedeController {
+class BrandController {
     public function show($id)
     {
         echo 'show de acesorios'.$id;
@@ -12,15 +11,14 @@ class SedeController {
 
     public function create()
     {
-        include 'views/sedes/create.php';
+        include 'views/brands/create.php';
     }
 
     public function store()
     {
-        $sede = $_POST['sede'];
-        $direction = $_POST['direction'];
-        $sede = Sede::store($sede, $direction);
-        if ($sede > 0) {
+        $brand = $_POST['brand'];
+        $brand = brand::store($brand);
+        if ($brand > 0) {
             header('location:./');
         }
     }
@@ -29,20 +27,19 @@ class SedeController {
     {
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -5);
-        $id = substr($id, 28);
-        $sede = Sede::find($id);
-        include 'views/sedes/edit.php';
+        $id = substr($id, 29);
+        $brand = brand::find($id);
+        include 'views/brands/edit.php';
     }
 
     public function update()
     {
-        $sede = $_POST['sede'];
-        $direction = $_POST['direction'];
+        $brand = $_POST['brand'];
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -7);
-        $id = substr($id, 28);
+        $id = substr($id, 29);
         echo $id;
-        $resultado = Sede::update($id,$sede,$direction);
+        $resultado = brand::update($id,$brand);
         echo $resultado;
        if ($resultado > 0) {
         header('location:../');
@@ -53,11 +50,12 @@ class SedeController {
     {
         $url = $_SERVER["REQUEST_URI"];
         $id = substr($url, 0, -7);
-        $id = substr($id, 33);
-        $resultado = Sede::delete($id);
-        echo $resultado;
+        $id = substr($id, 29);
+        $resultado = brand::delete($id);
        if ($resultado > 0) {
         header('location:../');
+       }else{
+        echo "No puedes eliminar este dato, debido a que se encuentra dependiendo de otro dato en la base de datos.";
        }
     }
 

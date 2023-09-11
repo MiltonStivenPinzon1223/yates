@@ -68,7 +68,7 @@ $url = str_replace("/yates","",$url);
               </li>
             </ul>
             <div class="user_option">
-              <a href="./administraitor" class="user_link">
+              <a href="./login" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="#">

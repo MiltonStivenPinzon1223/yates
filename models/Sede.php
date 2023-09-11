@@ -15,7 +15,7 @@ class Sede{
     public function getdirection() {return $this->direction;}
     public function setdirection($direction) {$this->direction = $direction;}
 
-    public static function all($page){
+    public static function all(){
         $sql = "SELECT * FROM sedes";
         $conexion = new conexion();
         $conexion->conect();

@@ -57,9 +57,11 @@ class HomeController {
             $user = Person::getUser($email, $password);
         if ($user) {
             session_start();
-            $_SESSION['user'] = $user;
-            print_r($user);
-            echo "<a href='./yachts/1/edit'>Editar Yate</a>";
+            $_SESSION['email'] = $email;
+            $_SESSION['password'] = $password;
+            if ($user['id_rols'] ==2) {
+                header('location:administraitor');
+            }
         }else{
             echo "error";
         }

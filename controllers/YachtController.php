@@ -12,21 +12,38 @@ class YachtController {
 
     public function show()
     {
+        
         $yacht = Yacht::find(1);
         include 'views/yachts/show.php';
     }
 
     public function create()
     {
-        echo 'create de yates';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                echo "puedes editarlo";
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 
     public function edit()
     {
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
         if ($_SESSION['user'] == null) {
             die('debes iniciar sesion');
         }else   {
-            if ($_SESSION['user']['id_rols'] ==1) {
+            if ($user['id_rols'] ==2) {
                 echo "puedes editarlo";
             }else {
                 echo "no puedes editarlo";
@@ -36,16 +53,52 @@ class YachtController {
 
     public function update()
     {
-        echo 'update de yates';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                echo "puedes editarlo";
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 
     public function store()
     {
-        echo 'store de acessories';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                echo "puedes editarlo";
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 
     public function delete()
     {
-        echo 'delete de accesories';
+        session_start();
+        $email= $_SESSION['email'];
+        $password= $_SESSION['password'];
+        $user = Person::getUser($email, $password);
+        if ($_SESSION['user'] == null) {
+            die('debes iniciar sesion');
+        }else   {
+            if ($user['id_rols'] ==2) {
+                echo "puedes editarlo";
+            }else {
+                echo "no puedes editarlo";
+            }
+        }
     }
 }
