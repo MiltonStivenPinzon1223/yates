@@ -4,6 +4,7 @@ include "controllers/AccesoryController.php";
 include "./models/Sede.php";
 include "./models/Specialty.php";
 include "./models/Brand.php";
+include "./models/Quote.php";
 include "./models/Mechanic.php";
 
 class AdministraitorController {
@@ -13,7 +14,7 @@ class AdministraitorController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
@@ -95,7 +96,8 @@ class AdministraitorController {
                 echo $url;
                 break;
             case 'quotes/':
-                echo $url;
+                $quotes = Quote::all();
+                include 'views/administraitors/quotes.php';
                 break;
             case 'sales/':
                 echo $url;
@@ -122,8 +124,13 @@ class AdministraitorController {
         }
     }
 
-    function show(){
+    public function show(){
         $users = Person::all();
         return $users;
+    }
+
+    public function logout(){
+        session_destroy();
+        header('location:../');
     }
 }

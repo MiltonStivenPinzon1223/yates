@@ -61,6 +61,8 @@ class HomeController {
             $_SESSION['password'] = $password;
             if ($user['id_rols'] ==2) {
                 header('location:administraitor');
+            }else{
+                header('location:quotes');
             }
         }else{
             echo "error";
