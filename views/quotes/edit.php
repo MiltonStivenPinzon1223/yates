@@ -28,7 +28,7 @@
   <div class="container">
     <div class="card bg-light">
       <div class="card-body">
-      <h4 class="card-title">Edicion de mecanicos</h4>
+      <h4 class="card-title">Edicion de Citas</h4>
       <form action="./update" method="POST">
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Nombre del mecanico:</label>

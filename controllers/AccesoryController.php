@@ -44,7 +44,7 @@ class AccesoryController {
                 $stock = $_POST['stock'];
                 $accesory = Accesory::store($name, $information, $price, $stock);
                 if ($accesory > 0) {
-                    header('location:/');
+                    header('location:./');
                 }
             }else {
                 echo "no puedes editarlo";

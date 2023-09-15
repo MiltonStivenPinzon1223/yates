@@ -2,6 +2,7 @@
 include_once "config/conexion.php";
 include "models/Person.php";
 include "models/Specialty.php";
+include "models/Mechanic.php";
 include "models/Sede.php";
 include "models/Quote.php";
 
@@ -32,11 +33,10 @@ class QuoteController {
 
     public function edit()
     {
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -5);
-        $id = substr($id, 32);
+        $id = $_POST['id'];
         $quote = Quote::find($id);
         $specialtys = Specialty::all();
+        $mechanics = Mechanic::all();
         $sedes = Sede::all();
         include 'views/quotes/edit.php';
     }

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .img-table{width: 120px; height: 100px; object-fit: cover;}
   </style>
@@ -48,7 +49,28 @@
   </div>
 </nav>
 <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
 <div id='calendar'></div>
+    </div>
+<div class="col-md-3 col-sm-12">
+<div class="row">
+<?php foreach ($quotes as $quote) : ?>
+  <div class="col-sm-12">
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title"><?php echo $quote['user'];?> - <?php echo $quote['specialty'];?></h4>
+        <p class="card-text"><?php echo $quote['date'];?></p>
+        <p class="card-text"><?php echo $quote['hour'];?></p>
+        <form action="./edit" method="post">
+          <input type="hidden" name="id" value="<?php echo $quote['id'];?>">
+          <input type="submit" name="id" class="btn btn-success" value="Editar">
+        </form>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
+</div>
 </div>
 </body>
 </html>
