@@ -16,7 +16,7 @@ class AccesoryController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
@@ -34,7 +34,7 @@ class AccesoryController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
@@ -44,7 +44,7 @@ class AccesoryController {
                 $stock = $_POST['stock'];
                 $accesory = Accesory::store($name, $information, $price, $stock);
                 if ($accesory > 0) {
-                    header('location:./');
+                    header('location:/');
                 }
             }else {
                 echo "no puedes editarlo";
@@ -59,13 +59,11 @@ class AccesoryController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
-                $url = $_SERVER["REQUEST_URI"];
-                $id = substr($url, 0, -5);
-                $id = substr($id, 33);
+                $id = $_POST['id'];
                 $accesory = Accesory::find($id);
                 include 'views/accesories/edit.php';
             }else {
@@ -80,7 +78,7 @@ class AccesoryController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
@@ -88,13 +86,11 @@ class AccesoryController {
                 $information = $_POST['information'];
                 $price = $_POST['price'];
                 $stock = $_POST['stock'];
-                $url = $_SERVER["REQUEST_URI"];
-                $id = substr($url, 0, -7);
-                $id = substr($id, 33);
+                $id = $_POST['id'];
                 $resultado = Accesory::update($id,$name,$information,$price,$stock);
                 echo $resultado;
                 if ($resultado > 0) {
-                    header('location:../');
+                    header('location:./');
                 }
             }else {
                 echo "no puedes editarlo";
@@ -108,17 +104,15 @@ class AccesoryController {
         $email= $_SESSION['email'];
         $password= $_SESSION['password'];
         $user = Person::getUser($email, $password);
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
-                $url = $_SERVER["REQUEST_URI"];
-                $id = substr($url, 0, -7);
-                $id = substr($id, 33);
+                $id = $_POST['id'];
                 $resultado = Accesory::delete($id);
                 echo $resultado;
                 if ($resultado > 0) {
-                    header('location:../');
+                    header('location:./');
                 }
             }else {
                 echo "no puedes editarlo";

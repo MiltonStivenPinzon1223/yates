@@ -33,6 +33,7 @@
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Nombre:</label>
           <input type="text" class="form-control" id="name" value="<?php echo $sede['sede']; ?>" placeholder="Edite nombre" name="sede">
+          <input type="hidden" value="<?php echo $sede['id']; ?>" name="id">
         </div>
         <div class="mb-3">
           <label for="information" class="form-label">Direccion:</label>

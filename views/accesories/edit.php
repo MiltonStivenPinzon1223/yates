@@ -33,6 +33,7 @@
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">name:</label>
           <input type="text" class="form-control" id="name" value="<?php echo $accesory['name']; ?>" placeholder="Edite nombre" name="name">
+          <input type="hidden" value="<?php echo $accesory['id']; ?>" name="id">
         </div>
         <div class="mb-3">
           <label for="information" class="form-label">Infomación:</label>

@@ -25,9 +25,7 @@ class SpecialtyController {
 
     public function edit()
     {
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -5);
-        $id = substr($id, 33);
+        $id = $_POST['id'];
         $specialty = specialty::find($id);
         include 'views/specialtys/edit.php';
     }
@@ -35,26 +33,20 @@ class SpecialtyController {
     public function update()
     {
         $specialty = $_POST['specialty'];
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 33);
-        echo $id;
+        $id = $_POST['id'];
         $resultado = specialty::update($id,$specialty);
-        echo $resultado;
        if ($resultado > 0) {
-        header('location:../');
+        header('location:./');
        }
     }
 
     public function delete()
     {
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 33);
+        $id = $_POST['id'];
         $resultado = specialty::delete($id);
         echo $resultado;
        if ($resultado > 0) {
-        header('location:../');
+        header('location:./');
        }
     }
 

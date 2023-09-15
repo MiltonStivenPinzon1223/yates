@@ -33,6 +33,7 @@
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Especialidad:</label>
           <input type="text" class="form-control" id="name" value="<?php echo $specialty['specialty']; ?>" placeholder="Edite nombre" name="specialty">
+          <input type="hidden" value="<?php echo $specialty['id']; ?>" name="id">
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>
       </form>

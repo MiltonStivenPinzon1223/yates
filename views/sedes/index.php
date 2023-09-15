@@ -43,8 +43,12 @@
         <td><?php echo $sede['sede'];?></td>
         <td><?php echo $sede['direction'];?></td>
         <td><div class="btn-group">
-            <a href="<?php echo $sede['id'];?>/edit" class="btn btn-success">Editar</a>
-            <a href="<?php echo $sede['id'];?>/delete" class="btn btn-danger">Eliminar</a>
+        <form action="./edit" method="post">
+            <input type="hidden" name="id" value="<?php echo $sede['id'];?>"><input type="submit" value="Editar" class="btn btn-success">
+          </form>
+          <form action="./delete" method="post">
+            <input type="hidden" name="id" value="<?php echo $sede['id'];?>"><input type="submit" value="Eliminar" class="btn btn-danger">
+          </form>
           </div></td>
       </tr>
           <?php endforeach; ?>

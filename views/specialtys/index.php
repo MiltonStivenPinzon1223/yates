@@ -41,8 +41,12 @@
       <tr class="">
         <td><?php echo $specialty['specialty'];?></td>
         <td><div class="btn-group">
-            <a href="<?php echo $specialty['id'];?>/edit" class="btn btn-success">Editar</a>
-            <a href="<?php echo $specialty['id'];?>/delete" class="btn btn-danger">Eliminar</a>
+        <form action="./edit" method="post">
+            <input type="hidden" name="id" value="<?php echo $specialty['id'];?>"><input type="submit" value="Editar" class="btn btn-success">
+          </form>
+          <form action="./delete" method="post">
+            <input type="hidden" name="id" value="<?php echo $specialty['id'];?>"><input type="submit" value="Eliminar" class="btn btn-danger">
+          </form>
           </div></td>
           <?php endforeach; ?>
     </tbody>
