@@ -66,7 +66,7 @@
         <h4 class="card-title"><?php echo $quote['specialty'];?></h4>
         <p class="card-text"><?php echo $quote['date'];?></p>
         <p class="card-text"><?php echo $quote['hour'];?></p>
-        <form action="./edit" method="post">
+        <form action="quotes/edit" method="post">
           <input type="hidden" name="id" value="<?php echo $quote['id'];?>">
           <input type="submit" class="btn btn-success" value="Editar">
         </form>
