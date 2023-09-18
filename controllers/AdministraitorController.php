@@ -128,9 +128,4 @@ class AdministraitorController {
         $users = Person::all();
         return $users;
     }
-
-    public function logout(){
-        session_destroy();
-        header('location:../');
-    }
 }

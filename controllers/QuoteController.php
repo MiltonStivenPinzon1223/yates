@@ -22,10 +22,11 @@ class QuoteController {
 
     public function store()
     {
-        $name = $_POST['name'];
+        $date = $_POST['date'];
+        $hour = $_POST['hour'];
         $specialty = $_POST['specialty'];
         $sede = $_POST['sede'];
-        $quote = Quote::store($name, $specialty,$sede);
+        $quote = Quote::store($date,$hour,$specialty,$sede);
         if ($quote > 0) {
             header('location:./');
         }
@@ -43,19 +44,16 @@ class QuoteController {
 
     public function update()
     {
-        $name = $_POST['name'];
-        $quote = $_POST['quote'];
+        $id = $_POST['id'];
+        $date = $_POST['date'];
+        $hour = $_POST['hour'];
         $specialty = $_POST['specialty'];
         $sede = $_POST['sede'];
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 32);
-        echo $id;
-        $resultado = Quote::update($id,$name,$specialty,$sede);
-        echo $resultado;
-       if ($resultado > 0) {
-        header('location:../');
-       }
+        $quote = Quote::update($id,$date,$hour,$specialty,$sede);
+        print_r($quote);
+        if ($quote > 0) {
+            header('location:./');
+        }
     }
 
     public function delete()

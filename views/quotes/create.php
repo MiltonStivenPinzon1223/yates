@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../public/css/style.css">
-  <link rel="stylesheet" href="../../public/css/responsive.css">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/responsive.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     .card-img-top{height: 300px; object-fit: cover;}
@@ -77,14 +77,17 @@ $url = str_replace("/yates","",$url);
 <div class="container my-5">
 <div class="card bg-light">
       <div class="card-body">
-      <h4 class="card-title">Creacion de mecanico</h4>
+      <h4 class="card-title">Agendamiento de cita</h4>
       <form action="./store" method="POST">
         <div class="mb-3 mt-3">
-          <label for="name" class="form-label">Nombre del mecanico:</label>
-          <input type="text" class="form-control" id="name" placeholder="Inserte nombre" name="name">
+          <label for="name" class="form-label">Fecha:</label>
+          <input type="date" class="form-control" id="name" placeholder="Inserte nombre" name="date">
         </div>
-
-        <label for="name" class="form-label mt-3">Nombre del mecanico:</label>
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Hora:</label>
+          <input type="time" class="form-control" id="name" placeholder="Inserte nombre" name="hour">
+        </div>
+        <label for="name" class="form-label mt-3">Tipo de servicio necesario:</label>
         <select class="form-select" name="specialty">
           <?php
           foreach ($specialtys as $specialty) {          
@@ -95,7 +98,7 @@ $url = str_replace("/yates","",$url);
           ?>
         </select>
 
-        <label for="name" class="form-label mt-3">Nombre del mecanico:</label>
+        <label for="name" class="form-label mt-3">Ubicacion:</label>
         <select class="form-select" name="sede">
           <?php
           foreach ($sedes as $sede) {

@@ -65,7 +65,7 @@ $url = str_replace("/yates","",$url);
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="./administraitor/logout" class="order_online">
+              <a href="./logout" class="order_online">
                 Cerrar Sesión
               </a>
             </div>

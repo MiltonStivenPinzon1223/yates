@@ -58,7 +58,9 @@ class HomeController {
         if ($user) {
             session_start();
             $_SESSION['email'] = $email;
+            $_SESSION['id'] = $user['id'];
             $_SESSION['password'] = $password;
+            $_SESSION['id_rols'] = $user['id_rols'];
             if ($user['id_rols'] ==2) {
                 header('location:administraitor');
             }else{
@@ -69,5 +71,10 @@ class HomeController {
         }
     }
         return false;
+    }
+
+    public function logout(){
+        session_destroy();
+        header('location:./');
     }
 }

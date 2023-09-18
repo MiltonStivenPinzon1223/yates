@@ -64,7 +64,7 @@
         <p class="card-text"><?php echo $quote['hour'];?></p>
         <form action="./edit" method="post">
           <input type="hidden" name="id" value="<?php echo $quote['id'];?>">
-          <input type="submit" name="id" class="btn btn-success" value="Editar">
+          <input type="submit" class="btn btn-success" value="Editar">
         </form>
       </div>
     </div>

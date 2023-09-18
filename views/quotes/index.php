@@ -43,14 +43,38 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
-      <a href="" class="btn btn-dark">Salir</a>
+      <a href="./logout" class="btn btn-dark">Salir</a>
     </div>
   </div>
 </nav>
-  
 <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <a href="quotes/create" class="btn btn-success">Agendar</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
 <div id='calendar'></div>
-
+    </div>
+<div class="col-md-3 col-sm-12">
+<div class="row">
+<?php foreach ($quotes as $quote) : ?>
+  <div class="col-sm-12">
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title"><?php echo $quote['specialty'];?></h4>
+        <p class="card-text"><?php echo $quote['date'];?></p>
+        <p class="card-text"><?php echo $quote['hour'];?></p>
+        <form action="./edit" method="post">
+          <input type="hidden" name="id" value="<?php echo $quote['id'];?>">
+          <input type="submit" class="btn btn-success" value="Editar">
+        </form>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
+</div>
 </div>
 </body>
 </html>

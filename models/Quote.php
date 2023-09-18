@@ -1,59 +1,78 @@
 <?php
 
 class Quote{
-    public $name;
+    public $date;
+    public $hour;
     public $specialty;
     public $sede;
 
-    public function __construct($name,$specialty, $sede){
-        $this->name = $name;
+    public function __construct($date,$specialty, $sede){
+        $this->date = $date;
+        $this->hour = $hour;
         $this->specialty = $specialty;
         $this->sede = $sede;
     }
 
     //=======GETTERS Y SETTERS
-    public function getname() {return $this->name;}
-    public function setname($name) {$this->name = $name;}
+    public function getdate() {return $this->date;}
+    public function setdate($date) {$this->date = $date;}
+    public function gethour() {return $this->hour;}
+    public function sethour($hour) {$this->hour = $hour;}
     public function getsede() {return $this->sede;}
     public function setsede($sede) {$this->sede = $sede;}
     public function getspecialty() {return $this->specialty;}
     public function setspecialty($specialty) {$this->specialty = $specialty;}
 
     public static function all(){
-        $sql = "SELECT quotes.*, specialtys.specialty, users.name as user FROM `quotes` INNER JOIN mechanics ON quotes.id_mechanics = mechanics.id INNER JOIN specialtys ON mechanics.id_specialty = specialtys.id INNER JOIN users ON quotes.id_users = users.id;";
+        session_start();
+        $id_rols = $_SESSION['id_rols'];
+        $email = $_SESSION['email'];
         $conexion = new conexion();
         $conexion->conect();
-        $resultado = $conexion->query($sql);
-
-        $names = array();
-        while ($fila = $resultado->fetch_assoc()) {
-            $names[] = $fila;
+        if ($id_rols  == 2) {
+            $sql2 = "SELECT quotes.*, specialtys.specialty, users.name as user FROM `quotes` INNER JOIN mechanics ON quotes.id_mechanics = mechanics.id INNER JOIN specialtys ON mechanics.id_specialty = specialtys.id INNER JOIN users ON quotes.id_users = users.id";
+            $resultado = $conexion->query($sql2);
+            while ($fila = $resultado->fetch_assoc()) {
+                $date[] = $fila;
+            }
+        }else{
+            $sql = "SELECT id FROM users WHERE email = '$email'";
+            $resultado = $conexion->query($sql);
+            while ($fila = $resultado->fetch_assoc()) {
+                $user[] = $fila;
+            }
+            $sql2 = "SELECT quotes.*, specialtys.specialty, users.name as user FROM `quotes` INNER JOIN mechanics ON quotes.id_mechanics = mechanics.id INNER JOIN specialtys ON mechanics.id_specialty = specialtys.id INNER JOIN users ON quotes.id_users = users.id where quotes.id_users =".$user[0]['id'].";";
+            $resultado = $conexion->query($sql2);
+            while ($fila = $resultado->fetch_assoc()) {
+                $date[] = $fila;
+            }
         }
-        return $names;
+        return $date;
     }
 
-    public static function find($correo){
+    public static function find($id){
         $conexion = new conexion();
         $conexion->conect();
-        $sql = "SELECT id FROM users WHERE email = '$correo'";
+            $sql2 = "SELECT quotes.*, specialtys.specialty, users.name as user FROM `quotes` INNER JOIN mechanics ON quotes.id_mechanics = mechanics.id INNER JOIN specialtys ON mechanics.id_specialty = specialtys.id INNER JOIN users ON quotes.id_users = users.id where quotes.id =$id";
+            $resultado = $conexion->query($sql2);
+            while ($fila = $resultado->fetch_assoc()) {
+                $date[] = $fila;
+            }
+            return $date[0];
+    }
+
+    public static function update($id,$date,$hour, $specialty, $sede){
+        $conexion = new conexion();
+        $conexion->conect();
+        $sql = "SELECT id FROM  mechanics WHERE id_specialty = $specialty AND id_sedes = $sede";
         $resultado = $conexion->query($sql);
         while ($fila = $resultado->fetch_assoc()) {
-            $user[] = $fila;
+            $mechanics[] = $fila;
         }
-        $sql2 = "SELECT quotes.*, specialtys.specialty, users.name as user FROM `quotes` INNER JOIN mechanics ON quotes.id_mechanics = mechanics.id INNER JOIN specialtys ON mechanics.id_specialty = specialtys.id INNER JOIN users ON quotes.id_users = users.id where quotes.id_users =".$user[0]['id'].";";
-        return $sql2;
+        return $mechanics;
+        $mechanic = array_rand($mechanics,2);
+        $sql2 = "UPDATE `quotes` SET `date`='$date', `hour`='$hour', `id_mechanic`='$mechanic', `id_sedes`='$sede' WHERE id = $id";
         $resultado = $conexion->query($sql2);
-        while ($fila = $resultado->fetch_assoc()) {
-            $name[] = $fila;
-        }
-        return $name[0];
-    }
-
-    public static function update($id,$name, $specialty, $sede){
-        $sql = "UPDATE `quotes` SET `name`='$name', `id_specialty`='$specialty', `id_sedes`='$sede' WHERE id = $id";
-        $conexion = new conexion();
-        $conexion->conect();
-        $resultado = $conexion->query($sql);
         return $resultado;
     }
     public static function delete($id){
@@ -64,10 +83,20 @@ class Quote{
         return $resultado;
     }
 
-    public static function store($name, $specialty, $sede){
-        $sql = "INSERT INTO `quotes`(`name`, `id_specialty`, `id_sedes`) VALUES ('$name', $specialty, $sede)";
+    public static function store($date,$hour, $specialty, $sede){
+        session_start();
+        $id = $_SESSION['id'];
         $conexion = new conexion();
         $conexion->conect();
+        $sql = "SELECT id FROM  mechanics WHERE id_specialty = $specialty AND id_sedes = $sede";
+        $resultado = $conexion->query($sql);
+        while ($fila = $resultado->fetch_assoc()) {
+            $mechanics[] = $fila;
+        }
+        return $mechanics;
+        $mechanic = array_rand($mechanics,2);
+        $sql = "INSERT INTO `quotes`(`date`, `hour`, `id_mechanics`, `id_users`) VALUES ('$date',$hour, $mechanic, $id)";
+        
         $resultado = $conexion->query($sql);
         return $resultado;
     }
