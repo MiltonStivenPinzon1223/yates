@@ -61,17 +61,16 @@ class Quote{
             return $date[0];
     }
 
-    public static function update($id,$date,$hour, $specialty, $sede){
+    public static function update($id,$date,$hour, $specialty, $sede, $id_users){
         $conexion = new conexion();
         $conexion->conect();
         $sql = "SELECT id FROM  mechanics WHERE id_specialty = $specialty AND id_sedes = $sede";
         $resultado = $conexion->query($sql);
         while ($fila = $resultado->fetch_assoc()) {
-            $mechanics[] = $fila;
+            $mechanics[] = $fila['id'];
         }
-        return $mechanics;
-        $mechanic = array_rand($mechanics,2);
-        $sql2 = "UPDATE `quotes` SET `date`='$date', `hour`='$hour', `id_mechanic`='$mechanic', `id_sedes`='$sede' WHERE id = $id";
+        $mechanic = array_rand($mechanics,1);
+        $sql2 = "UPDATE `quotes` SET `date`='$date', `hour`='$hour', `id_mechanics`=".$mechanics[$mechanic].", `id_users`=$id_users WHERE id = $id";
         $resultado = $conexion->query($sql2);
         return $resultado;
     }
@@ -91,12 +90,10 @@ class Quote{
         $sql = "SELECT id FROM  mechanics WHERE id_specialty = $specialty AND id_sedes = $sede";
         $resultado = $conexion->query($sql);
         while ($fila = $resultado->fetch_assoc()) {
-            $mechanics[] = $fila;
+            $mechanics[] = $fila['id'];
         }
-        return $mechanics;
-        $mechanic = array_rand($mechanics,2);
-        $sql = "INSERT INTO `quotes`(`date`, `hour`, `id_mechanics`, `id_users`) VALUES ('$date',$hour, $mechanic, $id)";
-        
+        $mechanic = array_rand($mechanics,1);
+        $sql = "INSERT INTO `quotes`(`date`, `hour`, `id_mechanics`, `id_users`) VALUES ('$date','$hour',". $mechanics[$mechanic].", $id)";
         $resultado = $conexion->query($sql);
         return $resultado;
     }

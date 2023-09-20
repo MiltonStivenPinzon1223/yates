@@ -11,24 +11,24 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="../public/images/favicon.png" type="">
+  <link rel="shortcut icon" href="../../public/images/favicon.png" type="">
 
   <title> Feane </title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="../public/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../public/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="../public/css/style.css" rel="stylesheet" />
+  <link href="../../public/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="../public/css/responsive.css" rel="stylesheet" />
+  <link href="../../public/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -96,7 +96,32 @@ $url = str_replace("/yates","",$url);
     <!-- slider section -->
     <section class="slider_section ">
     <div class="container ">
-
+      <div class="row">
+        <div class="col-12">
+          <a href="./create" class="btn btn-success">Crear nuevo yate</a>
+        </div>
+      </div>
+      <div class="row">
+        <?php
+          foreach ($yachts as $yacth) {
+        ?>
+        <div class="col-md-4 col-sm-12 mt-4">
+          <div class="card text-white bg-dark">
+            <img class="card-img-top" src="../../<?php echo $yacth['photo']  ?>" alt="Title">
+            <div class="card-body">
+              <form action="./show" method="post">
+                <input type="hidden" name="id" value="<?php echo $yacth['id']  ?>">
+                <input type="submit" value="<?php echo $yacth['model']  ?>" class="btn btn-dark">
+              </form>
+              <p class="card-text">$ <?php echo $yacth['price']  ?>.000</p>
+            </div>
+          </div>
+        </div>
+        <?php
+          }
+        ?>
+      </div>
+    </div>
     </section>
     <!-- end slider section -->
   </div>
@@ -184,12 +209,12 @@ $url = str_replace("/yates","",$url);
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="../public/js/jquery-3.4.1.min.js"></script>
+  <script src="../../public/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script src="../public/js/bootstrap.js"></script>
+  <script src="../../public/js/bootstrap.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -198,7 +223,7 @@ $url = str_replace("/yates","",$url);
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="../public/js/custom.js"></script>
+  <script src="../../public/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

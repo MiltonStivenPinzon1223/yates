@@ -10,8 +10,8 @@ class HomeController {
         $page = $_SERVER["REQUEST_URI"];
         $page = str_replace("/yates/","",$page);
         $page = ($page == "") ? '1' : $page;
-        $yachts = Yacht::all($page);
-        $accesories = Accesory::all($page);
+        $yachts = Yacht::page($page);
+        $accesories = Accesory::page($page);
         $products = array_merge($accesories, $yachts);
 
         shuffle($products);

@@ -11,7 +11,7 @@ class Brand{
     public function getbrand() {return $this->brand;}
     public function setbrand($brand) {$this->brand = $brand;}
 
-    public static function all($page){
+    public static function all(){
         $sql = "SELECT * FROM brands";
         $conexion = new conexion();
         $conexion->conect();

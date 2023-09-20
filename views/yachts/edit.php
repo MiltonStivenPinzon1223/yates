@@ -11,24 +11,24 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="../public/images/favicon.png" type="">
+  <link rel="shortcut icon" href="../../public/images/favicon.png" type="">
 
   <title> Feane </title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="../public/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../public/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="../public/css/style.css" rel="stylesheet" />
+  <link href="../../public/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="../public/css/responsive.css" rel="stylesheet" />
+  <link href="../../public/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -96,7 +96,41 @@ $url = str_replace("/yates","",$url);
     <!-- slider section -->
     <section class="slider_section ">
     <div class="container ">
-
+    <form action="./update" method="POST">
+  <div class="mb-3 mt-3">
+    <label for="model" class="form-label">model:</label>
+    <input type="hidden" class="form-control" id="id" placeholder="Enter id" value="<?php echo $yacht['id'] ?>" name="id">
+    <input type="text" class="form-control" id="model" placeholder="Enter model" value="<?php echo $yacht['model'] ?>" name="model">
+  </div>
+  <label for="sel1" class="form-label">Marca</label>
+  <div class="mb-3 mt-3">
+  <select class="form-select" name="brand">
+    <?php
+    foreach ($brands as $brand) {
+      ?>
+    <option value="<?php echo $brand['id']; ?>"><?php echo $brand['brand']; ?></option>
+    <?php } ?>
+  </select>
+  </div><br><br>
+  <div class="mb-3 mt-3">
+    <label for="price" class="form-label">price:</label>
+    <div class="input-group">
+      <span class="input-group-text">$</span>
+      <input type="text" class="form-control" placeholder="Precio del yate" value="<?php echo $yacht['price'] ?>" name="price">
+      <span class="input-group-text">.000</span>
+    </div>
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="information" class="form-label">informacion:</label>
+    <input type="text" class="form-control" id="information" placeholder="Enter information" value="<?php echo $yacht['information'] ?>" name="information">
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="serie" class="form-label">serie:</label>
+    <input type="text" class="form-control" id="serie" placeholder="Enter serie" value="<?php echo $yacht['serie'] ?>" name="serie">
+  </div>
+  <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+    </div>
     </section>
     <!-- end slider section -->
   </div>
@@ -184,12 +218,12 @@ $url = str_replace("/yates","",$url);
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="../public/js/jquery-3.4.1.min.js"></script>
+  <script src="../../public/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script src="../public/js/bootstrap.js"></script>
+  <script src="../../public/js/bootstrap.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -198,7 +232,7 @@ $url = str_replace("/yates","",$url);
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="../public/js/custom.js"></script>
+  <script src="../../public/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

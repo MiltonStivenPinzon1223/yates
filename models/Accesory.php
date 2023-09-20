@@ -23,7 +23,7 @@ class Accesory{
     public function getPhoto() {return $this->photo;}
     public function setPhoto($photo) {$this->photo = $photo;}
 
-    public static function all($page){
+    public static function page($page){
         $start = ($page - 1) * 3;
         $sql = "SELECT id, name, information, price, photo, stock FROM accessories LIMIT $start, 3";
         // $sql = ($rol == 1) ? "SELECT * FROM accessories" : "SELECT name, information, price FROM accessories";

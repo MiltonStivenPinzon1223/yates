@@ -85,7 +85,7 @@ class AdministraitorController {
         $url = str_replace("/yates/administraitor/","",$url);
         switch ($url) {
             case 'accesories/':
-                $accesories = Accesory::all(1);
+                $accesories = Accesory::all();
                 include 'views/accesories/index.php';
                 break;
             case 'sedes/':
@@ -93,7 +93,8 @@ class AdministraitorController {
                 include 'views/sedes/index.php';
                 break;
             case 'yachts/':
-                echo $url;
+                $yachts = Yacht::all();
+                include 'views/yachts/index.php';
                 break;
             case 'quotes/':
                 $quotes = Quote::all();

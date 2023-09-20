@@ -28,12 +28,14 @@ class QuoteController {
         $sede = $_POST['sede'];
         $quote = Quote::store($date,$hour,$specialty,$sede);
         if ($quote > 0) {
-            header('location:./');
+            header('location:../quotes');
         }
     }
 
     public function edit()
     {
+        session_start();
+        $id_users = $_SESSION['id'];
         $id = $_POST['id'];
         $quote = Quote::find($id);
         $specialtys = Specialty::all();
@@ -45,14 +47,14 @@ class QuoteController {
     public function update()
     {
         $id = $_POST['id'];
+        $id_user = $_POST['id_users'];
         $date = $_POST['date'];
         $hour = $_POST['hour'];
         $specialty = $_POST['specialty'];
         $sede = $_POST['sede'];
-        $quote = Quote::update($id,$date,$hour,$specialty,$sede);
-        print_r($quote);
+        $quote = Quote::update($id,$date,$hour,$specialty,$sede,$id_user);
         if ($quote > 0) {
-            header('location:./');
+            header('location:../quotes');
         }
     }
 

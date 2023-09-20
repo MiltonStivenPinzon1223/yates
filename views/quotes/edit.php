@@ -78,10 +78,11 @@ $url = str_replace("/yates","",$url);
 <div class="card bg-light">
       <div class="card-body">
       <h4 class="card-title">Agendamiento de cita</h4>
-      <form action="./update" method="POST">
+      <form action="../quotes/update" method="POST">
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Fecha:</label>
           <input type="hidden" class="form-control" id="name" value="<?php echo $quote['id'] ?>" placeholder="Inserte nombre" name="id">
+          <input type="hidden" class="form-control" id="name" value="<?php echo $id_users ?>" placeholder="Inserte nombre" name="id_users">
           <input type="date" class="form-control" id="name" value="<?php echo $quote['date'] ?>" placeholder="Inserte nombre" name="date">
         </div>
         <div class="mb-3 mt-3">
