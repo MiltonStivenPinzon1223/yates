@@ -60,7 +60,6 @@ class Person{
         $sql = "SELECT * FROM users WHERE id = '$id'";
         $resultado = $conexion->query($sql);
         if ($resultado != null) {
-            $conexion->close();
             while ($fila = $resultado->fetch_assoc()) {
                 $user[] = $fila;
             }
@@ -68,10 +67,11 @@ class Person{
         }else{
             die("Error  ");
         }
+        $conexion->close();
     }
 
-    public static function update($id,$name, $type_document, $document, $email){
-        $sql = "UPDATE `users` SET `name`='$name', `id_type_documents`='$type_document', `document`='$document', `email`='$email' WHERE id = $id";
+    public static function update($id,$name, $type_document, $document, $email,$rol){
+        $sql = "UPDATE `users` SET `name`='$name', `id_type_documents`='$type_document', `document`='$document', `email`='$email', `id_rols`='$rol' WHERE id = $id";
         $conexion = new conexion();
         $conexion->conect();
         $resultado = $conexion->query($sql);

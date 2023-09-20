@@ -48,10 +48,13 @@
         <td><?php echo $user['email'];?></td>
         <td><?php $r = ($user['status'] == 1) ? 'Activo' : 'Desactivado'; echo $r?></td>
         <td><div class="btn-group">
-            <a href="<?php echo $user['id'];?>/edit" class="btn btn-success">Editar</a>
-            <form action="<?php echo $user['id'];?>/status" method="post">
-            <input type="hidden" name="status" value="<?php $r = ($user['status'] == 1) ? '0' : '1'; echo $r?>">
-            <input type="submit" class="btn btn-danger" value="<?php $r = ($user['status'] == 1) ? 'Desactivar' : 'Activar'; echo $r?>">
+        <form action="./edit" method="post">
+            <input type="hidden" name="id" value="<?php echo $user['id'];?>">
+            <input type="submit" class="btn btn-success" value="Editar">
+            </form>
+            <form action="./status" method="post">
+            <input type="hidden" name="id" value="<?php echo $user['id'];?>">
+            <input type="submit" class="btn btn-danger" value="<?php $r = ($user['status'] == 1) ? 'Desactivar' : 'Activar'; echo $r?>" name="status">
             </form>
           </div></td>
           <?php endforeach; ?>

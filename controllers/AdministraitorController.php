@@ -36,13 +36,11 @@ class AdministraitorController {
         $sql = "SELECT * FROM type_documents";
         $resultado = $conexion->query($sql);
         while ($fila = $resultado->fetch_assoc()) {$type_documents[] = $fila;}
-        if ($_SESSION['user'] == null) {
+        if (!$user) {
             die('debes iniciar sesion');
         }else   {
             if ($user['id_rols'] ==2) {
-                $url = $_SERVER["REQUEST_URI"];
-                $id = substr($url, 0, -5);
-                $id = substr($id, 28);
+                $id =$_POST['id'];
                 $user = Person::find($id);
                 include 'views/administraitors/edit.php';
             }else {
@@ -53,30 +51,29 @@ class AdministraitorController {
 
     public function update()
     {
+        $id = $_POST['id'];
         $name = $_POST['name'];
         $type_document = $_POST['type_document'];
         $document = $_POST['document'];
         $email = $_POST['email'];
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 28);
-        $resultado = Person::update($id,$name,$type_document,$document,$email);
+        $rol = $_POST['rol'];
+        $resultado = Person::update($id,$name,$type_document,$document,$email,$rol);
         echo $resultado;
        if ($resultado > 0) {
-        header('location:../');
+        header('location:../users/');
        }
     }
 
     public function updateStatus()
     {
+        $id = $_POST['id'];
         $status = $_POST['status'];
-        $url = $_SERVER["REQUEST_URI"];
-        $id = substr($url, 0, -7);
-        $id = substr($id, 28);
-        $resultado = Person::updateStatus($id,$status);
+        echo $id;
+        $r = ($status == 'Desactivar') ? '0' : '1';
+        $resultado = Person::updateStatus($id,$r);
         echo $resultado;
        if ($resultado > 0) {
-        header('location:../');
+        header('location:../users/');
        }
     }
 

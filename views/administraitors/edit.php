@@ -32,6 +32,7 @@
       <form action="./update" method="POST">
         <div class="mb-3 mt-3">
           <label for="name" class="form-label">Nombre:</label>
+          <input type="hidden" class="form-control" id="id" value="<?php echo $user['id']; ?>" placeholder="Edite nombre" name="id">
           <input type="text" class="form-control" id="name" value="<?php echo $user['name']; ?>" placeholder="Edite nombre" name="name">
         </div>
         <label for="name" class="form-label mt-3">Tipo de Documento:</label>
@@ -52,7 +53,12 @@
           <label for="name" class="form-label">Email:</label>
           <input type="text" class="form-control" id="name" value="<?php echo $user['email']; ?>" placeholder="Edite email" name="email">
         </div>
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <label for="name" class="form-label mt-3">Rol:</label>
+        <select class="form-select" name="rol">
+          <option value="1">Usuario Estandar</option>
+          <option value="2">Administrador</option>
+        </select>
+        <button type="submit" class="btn btn-primary mt-4">Editar</button>
       </form>
       </div>
     </div>

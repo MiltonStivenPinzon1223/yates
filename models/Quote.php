@@ -6,7 +6,7 @@ class Quote{
     public $specialty;
     public $sede;
 
-    public function __construct($date,$specialty, $sede){
+    public function __construct($date,$specialty, $sede,$hour){
         $this->date = $date;
         $this->hour = $hour;
         $this->specialty = $specialty;
