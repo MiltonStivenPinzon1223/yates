@@ -50,6 +50,19 @@ class Accesory{
         return $accesory[0];
     }
 
+    public static function all(){
+        $sql = "SELECT * FROM accessories";
+        $conexion = new conexion();
+        $conexion->conect();
+        $resultado = $conexion->query($sql);
+
+        $accessories = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $accessories[] = $fila;
+        }
+        return $accessories;
+    }
+
     public static function update($id,$name, $information, $price, $stock){
         $sql = "UPDATE `accessories` SET `name`='$name',`information`='$information',`price`='$price',`stock`='$stock' WHERE id = $id";
         $conexion = new conexion();

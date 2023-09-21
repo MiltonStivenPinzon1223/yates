@@ -2,6 +2,7 @@
 include_once "config/conexion.php";
 include "controllers/AccesoryController.php";
 include "./models/Sede.php";
+include "./models/Sales.php";
 include "./models/Specialty.php";
 include "./models/Brand.php";
 include "./models/Quote.php";
@@ -98,7 +99,12 @@ class AdministraitorController {
                 include 'views/administraitors/quotes.php';
                 break;
             case 'sales/':
-                echo $url;
+                $sales_yachts = Sales::all_yachts();
+                $sales_accesories = Sales::all_accessories();
+                $counts = Sales::all();
+                $sum_yachts = Sales::sum_yachts();
+                $sum_accessories = Sales::sum_accessories();
+                include 'views/administraitors/sales.php';
                 break;
             case 'specialtys/':
                 $specialtys = Specialty::all(1);
