@@ -93,6 +93,19 @@ class Sales{
         }
         return $sales;
     }
+
+    public static function store($id, $category, $id_user){
+        $date = date("Y-m-d");
+        $conexion = new conexion();
+        $conexion->conect();
+        if ($category == 1) {
+            $sql = "INSERT INTO `accessories_sales`(`date`, `method`, `id_accesories`, `id_users`) VALUES ('$date','0','$id','$id_user')";
+        }else{
+            $sql = "INSERT INTO `yacht_sales`(`date`, `id_payment_method`, `id_yachts`, `id_users`) VALUES ('$date','1','$id','$id_user')";
+        }
+        $resultado = $conexion->query($sql);
+        return $resultado;
+    }
 }
 
 ?>

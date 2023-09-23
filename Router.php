@@ -62,6 +62,8 @@ class Router{
             ['/administraitor/brands/create', 'BrandController', 'create'],
             ['/administraitor/brands/store', 'BrandController', 'store'],
             ['/administraitor/brands/delete', 'BrandController', 'delete'],
+            ['/sales', 'SalesController', 'show'],
+            ['/sales/store', 'SalesController', 'store'],
             ['/logout', 'HomeController', 'logout'],
             ['/accesories/', 'AccesoryController', 'index'],
             ['/accesories', 'AccesoryController', 'show'],

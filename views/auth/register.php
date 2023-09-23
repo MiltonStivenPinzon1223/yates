@@ -42,7 +42,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="./">
             <span>
               Feane
             </span>
@@ -58,16 +58,13 @@ $url = str_replace("/yates","",$url);
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item <?php if ($url == "/register") {echo "active";} ?>">
-                <a class="nav-link" href="/">Home </a>
+                <a class="nav-link" href="./">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/citas">Citas</a>
+                <a class="nav-link" href="./about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/book">Book Table <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="./login">Login<span class="sr-only">(current)</span> </a>
               </li>
             </ul>
             <div class="user_option">
